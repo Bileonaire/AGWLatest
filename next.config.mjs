@@ -15,12 +15,12 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
+    domains: [],
   },
   experimental: {
     webpackBuildWorker: true,
-    parallelServerBuildTraces: true,
-    parallelServerCompiles: true,
   },
+  output: 'standalone',
 }
 
 mergeConfig(nextConfig, userConfig)
