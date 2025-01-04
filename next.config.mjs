@@ -17,9 +17,6 @@ const nextConfig = {
     unoptimized: true,
     domains: [],
   },
-  experimental: {
-    webpackBuildWorker: true,
-  },
   output: 'standalone',
 }
 
