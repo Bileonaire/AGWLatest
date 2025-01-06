@@ -36,6 +36,7 @@ export function About() {
     return () => window.removeEventListener('resize', updateCardPositions)
   }, [])
 
+  
   return (
     <section className="relative py-32 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
       {/* Background Grid */}
