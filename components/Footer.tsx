@@ -75,7 +75,6 @@ export function Footer() {
             </div>
           </div>
         </div>
-
         <div className="mt-12 pt-8 border-t border-gray-800 text-center">
           <p className="text-sm text-gray-400">
             © {new Date().getFullYear()} Angela Gitonga. All rights reserved.
