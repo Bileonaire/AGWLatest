@@ -12,17 +12,28 @@ export function About() {
 
     const cards = container.querySelectorAll('.skill-card')
     const totalCards = cards.length
-    const radius = 200
+    const radius = window.innerWidth < 768 ? 150 : 200 // Reduce radius on mobile
     const angleOffset = -90
 
-    cards.forEach((card, index) => {
-      const angle = angleOffset + (index * (360 / totalCards))
-      const radian = (angle * Math.PI) / 180
-      const x = radius * Math.cos(radian)
-      const y = radius * Math.sin(radian)
+    const updateCardPositions = () => {
+      cards.forEach((card, index) => {
+        const angle = angleOffset + (index * (360 / totalCards))
+        const radian = (angle * Math.PI) / 180
+        const x = radius * Math.cos(radian)
+        const y = radius * Math.sin(radian)
 
-      ;(card as HTMLElement).style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`
-    })
+        ;(card as HTMLElement).style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`
+      })
+    }
+
+    // Initial positioning
+    updateCardPositions()
+
+    // Update positions on resize
+    window.addEventListener('resize', updateCardPositions)
+
+    // Cleanup
+    return () => window.removeEventListener('resize', updateCardPositions)
   }, [])
 
   return (
@@ -31,7 +42,7 @@ export function About() {
       <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
 
       {/* Decorative Elements */}
-      <motion.div 
+      <motion.div
         className="absolute top-20 right-20 w-16 h-16 text-purple-200 transform rotate-45"
         animate={{
           rotate: [45, 90, 45],
@@ -49,8 +60,8 @@ export function About() {
       </motion.div>
 
       <div className="absolute bottom-40 left-20 text-blue-200 text-4xl font-bold">+</div>
-      
-      <motion.div 
+
+      <motion.div
         className="absolute top-40 left-1/4 text-purple-200 text-2xl"
         animate={{
           y: [0, -20, 0],
@@ -64,7 +75,7 @@ export function About() {
         ✦
       </motion.div>
 
-      <motion.div 
+      <motion.div
         className="absolute left-20 top-1/3 text-indigo-200 text-3xl"
         animate={{
           scale: [1, 1.5, 1],
@@ -78,7 +89,7 @@ export function About() {
         ◇
       </motion.div>
 
-      <motion.div 
+      <motion.div
         className="absolute left-40 bottom-1/3 text-pink-200 text-2xl"
         animate={{
           x: [0, 20, 0]
@@ -97,7 +108,7 @@ export function About() {
         </svg>
       </div>
 
-      <motion.div 
+      <motion.div
         className="absolute left-1/4 bottom-20 text-blue-200 text-4xl font-bold"
         animate={{
           rotate: [0, 360]
@@ -123,7 +134,7 @@ export function About() {
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="lg:w-1/2 min-h-[500px] flex items-center justify-center"
+              className="lg:w-1/2 min-h-[500px] flex items-center justify-center "
             >
               <div ref={containerRef} className="relative h-0 w-0">
                 <motion.div
