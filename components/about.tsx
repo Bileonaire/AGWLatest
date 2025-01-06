@@ -25,13 +25,14 @@ export function About() {
     })
   }, [])
 
+  
   return (
     <section className="relative py-32 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
       {/* Background Grid */}
       <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
 
       {/* Decorative Elements */}
-      <motion.div 
+      <motion.div
         className="absolute top-20 right-20 w-16 h-16 text-purple-200 transform rotate-45"
         animate={{
           rotate: [45, 90, 45],
@@ -49,8 +50,8 @@ export function About() {
       </motion.div>
 
       <div className="absolute bottom-40 left-20 text-blue-200 text-4xl font-bold">+</div>
-      
-      <motion.div 
+
+      <motion.div
         className="absolute top-40 left-1/4 text-purple-200 text-2xl"
         animate={{
           y: [0, -20, 0],
@@ -64,7 +65,7 @@ export function About() {
         ✦
       </motion.div>
 
-      <motion.div 
+      <motion.div
         className="absolute left-20 top-1/3 text-indigo-200 text-3xl"
         animate={{
           scale: [1, 1.5, 1],
@@ -78,7 +79,7 @@ export function About() {
         ◇
       </motion.div>
 
-      <motion.div 
+      <motion.div
         className="absolute left-40 bottom-1/3 text-pink-200 text-2xl"
         animate={{
           x: [0, 20, 0]
@@ -97,7 +98,7 @@ export function About() {
         </svg>
       </div>
 
-      <motion.div 
+      <motion.div
         className="absolute left-1/4 bottom-20 text-blue-200 text-4xl font-bold"
         animate={{
           rotate: [0, 360]
